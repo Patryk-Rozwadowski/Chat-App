@@ -12,6 +12,15 @@ app.get('/', (req, res) => {
     res.sendFile(`${__dirname}/index.html`);
 });
 
+io.on('connection', (socket) => {
+    userService.addUser({
+        id: socket.id,
+        name
+    });
+});
+
+io.emit('update', { users: userService.getAllUsers() });
+
 server.listen(3000, () => {
     console.log('Listening on :3000 Port');
 });
