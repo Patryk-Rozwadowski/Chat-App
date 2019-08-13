@@ -13,9 +13,11 @@ app.get('/', (req, res) => {
 });
 
 io.on('connection', (socket) => {
-    userService.addUser({
-        id: socket.id,
-        name
+    socket.on('disconnect', () => {
+        usersService.removeUser(socket.id);
+        socket.broadcast.emit('update', {
+            users: usersService.getAllUsers()
+        });
     });
 });
 
