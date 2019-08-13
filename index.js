@@ -21,6 +21,16 @@ io.on('connection', (socket) => {
     });
 });
 
+io.on('connection', (socket) => {
+    socket.on('message', (message) => {
+        const { name } = usersService.getUserById(socket.id);
+        socket.broadcast.emit('message', {
+            text: message.text,
+            from: name
+        });
+    });
+});
+
 io.emit('update', { users: userService.getAllUsers() });
 
 server.listen(3000, () => {
