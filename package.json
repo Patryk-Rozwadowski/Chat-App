@@ -31,6 +31,7 @@
     "react-hot-loader": "^4.12.10",
     "socket.io-client": "^2.2.0",
     "style-loader": "^1.0.0",
+    "uglifyjs-webpack-plugin": "^2.2.0",
     "webpack": "^4.39.1",
     "webpack-cli": "^3.3.6",
     "webpack-dev-server": "^3.8.0"

@@ -2,6 +2,15 @@ import React, { Component } from 'react';
 import { hot } from 'react-hot-loader';
 import io from 'socket.io-client';
 
+import styles from './App.css';
+
+import MessageForm from './MessageForm';
+import MessageList from './MessageList';
+import UsersList from './UsersList';
+import UserForm from './UserForm';
+
+const socket = io('/');
+
 const socket = io('/');
 
 class App extends Component {
@@ -11,16 +20,16 @@ class App extends Component {
         this.state = { users: [], messages: [], text: '', name: '' };
     }
 
+    renderUserForm() {
+        return (<UserForm onUserSubmit={name => this.handleUserSubmit(name)} />)
+    }
+
     renderLayout() {
         return (
             <div className={styles.App}>
                 <div className={styles.AppHeader}>
-                    <div className={styles.AppTitle}>
-                        ChatApp
-          </div>
-                    <div className={styles.AppRoom}>
-                        App room
-          </div>
+                    <div className={styles.AppTitle}> ChatApp </div>
+                    <div className={styles.AppRoom}> App room </div>
                 </div>
                 <div className={styles.AppBody}>
                     <UsersList users={this.state.users} />
