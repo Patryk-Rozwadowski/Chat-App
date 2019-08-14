@@ -64,8 +64,8 @@ class App extends Component {
         );
     };
 
-        render() {
-            return this.state.name !== '' ? this.renderLayout() : this.renderUserForm();
-        };
+    render() {
+        return this.state.name !== '' ? this.renderLayout() : this.renderUserForm();
     };
-    export default hot(module)(App);
+};
+export default hot(module)(App);
