@@ -11,5 +11,8 @@
     font-size: 2em;
     border: 0;
     border-bottom: 1px solid #ccc;
-    width: 510px;
+    width: 610px;
+    font-family: 'Roboto', sans-serif;
+    font-weight:300;
+    text-align: center;
 }

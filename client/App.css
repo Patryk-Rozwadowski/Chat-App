@@ -1,47 +1,51 @@
 body {
-    margin: 0;
+  margin: 0;
 }
 
 .App {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    height: 100vh;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  height: 100vh;
 }
 
 .AppHeader {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    border-bottom: 1px solid #ccc;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: #333333;
+  color: #fff;
+  font-family: 'Roboto', sans-serif;
 }
 
 .AppTitle {
-    display: flex;
-    width: 25vw;
-    border-right: 1px solid #ccc;
-    justify-content: center;
-    box-sizing: border-box;
-    padding: 20px;
+  display: flex;
+  width: 25vw;
+  justify-content: center;
+  box-sizing: border-box;
+  font-family: "Robot", sans-serif;
+  font-family: "Roboto", sans-serif;
+  font-weight: 900;
+
 }
 
 .AppRoom {
-    display: flex;
-    width: 75vw;
-    justify-content: center;
-    box-sizing: border-box;
-    padding: 20px;
+  display: flex;
+  width: 75vw;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 40px;
 }
 
 .AppBody {
-    display: flex;
-    flex-direction: row;
-    flex: 1;
+  display: flex;
+  flex-direction: row;
+  flex: 1;
 }
 
 .MessageWrapper {
-    display: flex;
-    flex-direction: column;
-    width: 75vw;
-    flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 75vw;
+  flex: 1;
 }

@@ -51,7 +51,7 @@ class App extends Component {
             <div className={styles.App}>
                 <div className={styles.AppHeader}>
                     <div className={styles.AppTitle}> ChatApp </div>
-                    <div className={styles.AppRoom}> App room </div>
+                    <div className={styles.AppRoom}> Public room </div>
                 </div>
                 <div className={styles.AppBody}>
                     <UsersList users={this.state.users} />
