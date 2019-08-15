@@ -16,6 +16,18 @@ app.get('/', (req, res) => {
 });
 
 io.on('connection', (socket) => {
+    socket.on('join', (name) => {
+        usersService.addUser({
+            id: socket.id,
+            name
+        });
+        io.emit('update', {
+            users: usersService.getAllUsers()
+        });
+    });
+})
+
+io.on('connection', (socket) => {
     socket.on('disconnect', () => {
         usersService.removeUser(socket.id);
         socket.broadcast.emit('update', {
@@ -34,7 +46,7 @@ io.on('connection', (socket) => {
     });
 });
 
-io.emit('update', { users: userService.getAllUsers() });
+io.emit('update', { users: usersService.getAllUsers() });
 
 server.listen(3000, () => {
     console.log('Listening on :3000 Port');

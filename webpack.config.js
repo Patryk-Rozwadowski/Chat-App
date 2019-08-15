@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const OptimizeJsPlugin = require('optimize-js-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
-const plugins = [
+let plugins = [
     new HtmlWebpackPlugin({
         template: 'client/index.html',
         filename: 'index.html',
@@ -59,7 +59,7 @@ module.exports = (env) => {
         devServer: {
             proxy: {
                 '/socket.io': {
-                    target: 'http://localhost:3000',
+                    target: 'http://localhost:8080 ',
                     ws: true
                 }
             }
