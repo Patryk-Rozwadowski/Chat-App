@@ -40,6 +40,8 @@
   },
   "dependencies": {
     "express": "^4.17.1",
-    "socket.io": "^2.2.0"
+    "randomcolor": "^0.5.4",
+    "socket.io": "^2.2.0",
+    "uuid": "^3.3.2"
   }
 }
