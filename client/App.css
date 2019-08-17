@@ -8,6 +8,7 @@ body {
   flex-direction: column;
   flex: 1;
   height: 100vh;
+  padding:15px;
 }
 
 .AppHeader {
@@ -17,6 +18,7 @@ body {
   background-color: #333333;
   color: #fff;
   font-family: 'Roboto', sans-serif;
+  border-radius:3px;
 }
 
 .AppTitle {

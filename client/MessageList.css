@@ -13,16 +13,30 @@
   font-weight: 300;
   padding: 5px;
   color: #fff;
+  border-radius:5px;
   position:relative;
+  animation: message-anim 300ms;
 }
 
 
 .From {
   font-family: "Roboto", sans-serif;
-  font-weight: 900;
+  font-weight: 400;
   margin-right:20px;
+  animation: message-move 300ms;
 }
 
 .MessageContainer {
   padding: 10px;
+}
+
+
+@keyframes message-anim {
+  0% {opacity: 0;}
+  100% {width:100%;}
+}
+
+@keyframes message-move {
+  0% {margin-right:0;}
+  100% {margin-right:20px;}
 }
