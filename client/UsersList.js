@@ -11,7 +11,7 @@ const UsersList = props => (
             {
                 props.users.map((user) => {
                     return (
-                        <li key={user.id} className={styles.UserItem} style={props.color}>
+                        <li key={user.id} className={styles.UserItem} style={{ borderLeft: `3px solid ${user.color}` }}>
                             {user.name}
                         </li>
                     );

@@ -20,6 +20,7 @@ io.on('connection', (socket) => {
         usersService.addUser({
             id: socket.id,
             name,
+            color: usersService.getRandomColor()
         });
         io.emit('update', {
             users: usersService.getAllUsers()
@@ -36,21 +37,21 @@ io.on('connection', (socket) => {
     });
 });
 
+
 io.on('connection', (socket) => {
     socket.on('message', (message) => {
-        const { name } = usersService.getUserById(socket.id);
+        const { name, color } = usersService.getUserById(socket.id);
         socket.broadcast.emit('message', {
             text: message.text,
-            from: name
+            from: name,
         });
+        socket.emit('message', {
+            color, 
+            text: message.text,
+            from: name,
+        })
     });
 });
-
-io.on('randomColor', (socket) => {
-    socket.emit('colors'), {
-        colors: usersService.getRandomColor(),
-    }
-})
 
 server.listen(3000, () => {
     console.log('Listening on :3000 Port');

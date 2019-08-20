@@ -14,13 +14,13 @@ class App extends Component {
 
     constructor(props) {
         super(props);
-        this.state = { users: [], messages: [], text: '', name: '', colors: []};
+        this.state = { users: [], messages: [], text: '', name: '' };
     };
 
     componentDidMount() {
         socket.on('message', message => this.messageReceive(message));
         socket.on('update', ({ users }) => this.chatUpdate(users));
-        socket.on('colors', ({ colors }) => this.colorUpdate(colors));
+
     };
 
     messageReceive(message) {
@@ -29,25 +29,22 @@ class App extends Component {
     };
 
     chatUpdate(users) {
-        this.setState({ users});
-    };
-
-    colorUpdate(colors) {
-        this.setState({colors})
-        console.log(this.state.colors)
+        this.setState({ users });
     };
 
     handleMessageSubmit(message) {
         const messages = [message, ...this.state.messages];
         this.setState({ messages });
+        console.log(this.state.users)
+        console.log(this.state.messages)
         socket.emit('message', message);
+
     };
 
     handleUserSubmit(name) {
         if (name == '') name = `Noname ${Math.floor(Math.random() * 999)}`;
         this.setState({ name });
         socket.emit('join', name);
-        socket.emit('randomColor')
     };
 
     renderUserForm() {
@@ -62,10 +59,10 @@ class App extends Component {
                     <div className={styles.AppRoom}> App room </div>
                 </div>
                 <div className={styles.AppBody}>
-                    <UsersList users={this.state.users} color={{ borderLeft: `3px solid ${this.state.colors}` }}/>
+                    <UsersList users={this.state.users} />
                     <div className={styles.MessageWrapper}>
-                        <MessageList messages={this.state.messages}/>
-                        <MessageForm onMessageSubmit={message => this.handleMessageSubmit(message)} name={this.state.name} />
+                        <MessageList messages={this.state.messages} />>
+                        <MessageForm  onMessageSubmit={message => this.handleMessageSubmit(message)} name={this.state.name} />
                     </div>
                 </div>
             </div>
