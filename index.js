@@ -40,16 +40,11 @@ io.on('connection', (socket) => {
 
 io.on('connection', (socket) => {
     socket.on('message', (message) => {
-        const { name, color } = usersService.getUserById(socket.id);
+        const { name } = usersService.getUserById(socket.id);
         socket.broadcast.emit('message', {
             text: message.text,
             from: name,
         });
-        socket.emit('message', {
-            color, 
-            text: message.text,
-            from: name,
-        })
     });
 });
 
